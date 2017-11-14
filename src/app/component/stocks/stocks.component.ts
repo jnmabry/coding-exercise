@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { StocksService } from '../../service/stocks/stocks.service';
 
 @Component({
   selector: 'app-stocks',
