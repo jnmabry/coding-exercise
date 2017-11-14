@@ -37,3 +37,5 @@ app.use(forceSSL());
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
+
+// Test auto deploy to heroku
