@@ -12,6 +12,11 @@ import { StocksComponent } from './component/stocks/stocks.component';
 import { WeatherService } from './service/weather/weather.service';
 import { StocksService } from './service/stocks/stocks.service';
 
+// Angular Material Modules
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +27,9 @@ import { StocksService } from './service/stocks/stocks.service';
     BrowserModule,
     HttpClientModule,
     routing,
+    MatMenuModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [
     WeatherService,

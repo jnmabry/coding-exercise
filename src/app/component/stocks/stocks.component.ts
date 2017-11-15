@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { StocksService } from '../../service/stocks/stocks.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-stocks',
@@ -9,6 +12,9 @@ import { StocksService } from '../../service/stocks/stocks.service';
 })
 export class StocksComponent implements OnInit {
 
+  stockQuotes: any = {};
+  quoteSubscription: Subscription;
+
   constructor(private _stocksService: StocksService) { }
 
   ngOnInit() {
@@ -16,9 +22,10 @@ export class StocksComponent implements OnInit {
   }
 
   getStockQuotes() {
-    this._stocksService.getStockQuotes()
-    .subscribe(data => {
-      console.log(data);
+    this.quoteSubscription = this._stocksService.gotStockQuotes()
+    .subscribe(quotes => {
+      console.log(quotes.latestUpdate);
+      this.stockQuotes = quotes;
     });
   }
 
