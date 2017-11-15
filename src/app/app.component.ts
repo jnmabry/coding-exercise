@@ -7,5 +7,10 @@ import { Router, RouterOutlet} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  navLinks: any[] = [
+    { path: '/weather', label: 'Weather' },
+    { path: '/stocks', label: 'Stocks' }
+  ];
+
 }

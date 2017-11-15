@@ -30,13 +30,3 @@ export class StocksService {
   }
 
 }
-
-// private clock: Observable<Date>;
-
-//   constructor() {
-//     this.clock = Observable.interval(1000).map(tick => new Date()).share();
-//   }
-
-//   getClock(): Observable<Date> {
-//     return this.clock;
-//   }

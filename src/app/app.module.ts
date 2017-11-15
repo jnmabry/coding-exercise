@@ -16,6 +16,9 @@ import { StocksService } from './service/stocks/stocks.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     routing,
     MatMenuModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     WeatherService,

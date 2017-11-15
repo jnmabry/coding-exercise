@@ -1,3 +1,26 @@
-<div *ngFor="let day of fiveDayForecast">
-  <h1>{{day.time | date:'fullDate'}}</h1>
+<!-- <mat-progress-spinner mode="indeterminate"> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">{{currentWeather.cityName}}</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>      
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4" *ngFor="let day of fiveDayForecast">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">{{day.time | date:'fullDate'}}</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+

@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { StocksService } from '../../service/stocks/stocks.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/timer';
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/observable/timer';
 
 @Component({
   selector: 'app-stocks',
@@ -10,7 +10,8 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./stocks.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class StocksComponent implements OnInit {
+
+export class StocksComponent implements OnInit, OnDestroy {
 
   stockQuotes: any = {};
   quoteSubscription: Subscription;
@@ -27,6 +28,10 @@ export class StocksComponent implements OnInit {
       console.log(quotes.latestUpdate);
       this.stockQuotes = quotes;
     });
+  }
+
+  ngOnDestroy() {
+    this.quoteSubscription.unsubscribe();
   }
 
 }

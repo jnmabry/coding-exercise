@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../../service/weather/weather.service';
 import { Weather } from '../../service/weather/weather.model';
 
@@ -8,7 +8,7 @@ import { Weather } from '../../service/weather/weather.model';
   styleUrls: ['./weather.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent implements OnInit, OnDestroy {
 
   currentWeather: any = {};
   fiveDayForecast: Weather[] = [];
@@ -50,6 +50,9 @@ export class WeatherComponent implements OnInit {
       console.log(fiveDayForecast);
       }, error => { console.log(error); }
     );
+  }
+
+  ngOnDestroy() {
   }
 
 }
