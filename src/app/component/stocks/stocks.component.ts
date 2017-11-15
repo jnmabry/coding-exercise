@@ -9,9 +9,17 @@ import { StocksService } from '../../service/stocks/stocks.service';
 })
 export class StocksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _stocksService: StocksService) { }
 
   ngOnInit() {
+    this.getStockQuotes();
+  }
+
+  getStockQuotes() {
+    this._stocksService.getStockQuotes()
+    .subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

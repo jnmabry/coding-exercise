@@ -1,3 +1,3 @@
-<p>
-  weather works!
-</p>
+<div *ngFor="let day of fiveDayForecast">
+  <h1>{{day.time | date:'fullDate'}}</h1>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../../service/weather/weather.service';
+import { Weather } from '../../service/weather/weather.model';
 
 @Component({
   selector: 'app-weather',
@@ -8,6 +9,9 @@ import { WeatherService } from '../../service/weather/weather.service';
   encapsulation: ViewEncapsulation.None
 })
 export class WeatherComponent implements OnInit {
+
+  currentWeather: any = {};
+  fiveDayForecast: Weather[] = [];
 
   constructor(private _weatherService: WeatherService) {
 
@@ -29,11 +33,23 @@ export class WeatherComponent implements OnInit {
   }
 
   getCurrentWeather(lat: number, long: number) {
-    return this._weatherService.getCurrentWeather(lat, long);
+    this._weatherService.getCurrentWeather(lat, long)
+    .subscribe(data => {
+      const currentWeather = new Weather(data);
+      this.currentWeather = currentWeather;
+      console.log(currentWeather);
+      }, error => { console.log(error); }
+    );
   }
 
   getFiveDayForecast(lat: number, long: number) {
-    return this._weatherService.getFiveDayForecast(lat, long);
+    this._weatherService.getFiveDayForecast(lat, long)
+    .subscribe(data => {
+      const fiveDayForecast: Weather[] = data['list'].map((singleWeather) => new Weather(singleWeather) );
+      this.fiveDayForecast = fiveDayForecast;
+      console.log(fiveDayForecast);
+      }, error => { console.log(error); }
+    );
   }
 
 }
