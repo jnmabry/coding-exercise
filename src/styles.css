@@ -1,3 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-@import "~bootstrap/dist/css/bootstrap.css"
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/weathericons/css/weather-icons.css";
+@import "../node_modules/weathericons/css/weather-icons-wind.css";
+
+* {-webkit-font-smoothing: antialiased;}
+.hide {
+  display: none !important;
+}

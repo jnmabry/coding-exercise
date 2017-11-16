@@ -20,13 +20,17 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { SingleDayForecastComponent } from './component/weather/single-day-forecast/single-day-forecast.component';
+import { CurrentForecastComponent } from './component/weather/current-forecast/current-forecast.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
-    StocksComponent
+    StocksComponent,
+    SingleDayForecastComponent,
+    CurrentForecastComponent
   ],
   imports: [
     BrowserModule,

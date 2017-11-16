@@ -1,27 +1,13 @@
-<!-- <mat-progress-spinner mode="indeterminate"> -->
+<!-- <mat-progress-spinner [ngClass]="'hide'" mode="indeterminate"> -->
 <div class="container weather-wrapper">
   <div class="row">
     <div class="col-sm">
-      <div class="current-weather">
-        <h4 class="card-title">Current weather on {{currentWeather.time | date:'EEEE, MMM d'}}</h4>
-        <h2>{{currentWeather.cityName}}</h2>
-        <h1>{{currentWeather.temp}}</h1>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
+      <current-forecast [currentWeather]="currentWeather"></current-forecast>
     </div>      
-  </div>
-  <div class="row five-day">
-    <div class="col">
-        <h4>Week of {{currentWeather.time | date:'EEEE, MMM d'}}</h4>
-    </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm col-md" *ngFor="let day of fiveDayForecast">
-      <mat-card [ngStyle]="{ 'background': '#D3EBF0' }">
-        <div class="card-block">
-          <h4 class="card-title">{{day.time | date:'E'}}</h4>
-        </div>
-      </mat-card>
+      <single-day-forecast [day]="day"></single-day-forecast>
     </div>
   </div>
 </div>

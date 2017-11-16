@@ -1,0 +1,40 @@
+<div class="current-weather">
+  <div class="row">
+    <div class="col-12 heading-info">
+      <span class="align-center time">
+        {{currentWeather.time | date:'EEEE, MMMM d, y, h:mm:ss a'}}
+      </span>
+      <span class="float-left temp">
+        {{currentWeather.tempHigh}} High
+      </span>
+      <span class="float-right temp">
+        {{currentWeather.tempLow}} Low
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-lg-6 city text-center text-lg-right">
+        {{currentWeather.cityName}}
+    </div>
+    <div class="col-xs-12 col-lg-6 conditions">
+      <span>
+        <div class="condition-wrapper">
+          <h2>{{currentWeather.temp}}</h2>
+          <p>Current Temp</p>
+        </div>
+      </span>
+      <span>
+        <div class="condition-wrapper">
+          <i class="wi wi-day-cloudy"></i>
+          <p>{{currentWeather.description}}</p>
+        </div>
+      </span>
+      <span>
+        <div class="condition-wrapper">
+          <h2>{{currentWeather.humidity}}</h2>
+          <p>Humidity</p>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
