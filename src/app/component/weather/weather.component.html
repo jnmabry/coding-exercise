@@ -1,24 +1,27 @@
 <!-- <mat-progress-spinner mode="indeterminate"> -->
-<div class="container">
+<div class="container weather-wrapper">
   <div class="row">
     <div class="col-sm">
-      <div class="card">
-        <div class="card-block">
-          <h4 class="card-title">{{currentWeather.cityName}}</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+      <div class="current-weather">
+        <h4 class="card-title">Current weather on {{currentWeather.time | date:'EEEE, MMM d'}}</h4>
+        <h2>{{currentWeather.cityName}}</h2>
+        <h1>{{currentWeather.temp}}</h1>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>      
   </div>
+  <div class="row five-day">
+    <div class="col">
+        <h4>Week of {{currentWeather.time | date:'EEEE, MMM d'}}</h4>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-xs-12 col-md-4" *ngFor="let day of fiveDayForecast">
-      <div class="card">
+    <div class="col-xs-12 col-sm col-md" *ngFor="let day of fiveDayForecast">
+      <mat-card [ngStyle]="{ 'background': '#D3EBF0' }">
         <div class="card-block">
-          <h4 class="card-title">{{day.time | date:'fullDate'}}</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h4 class="card-title">{{day.time | date:'E'}}</h4>
         </div>
-      </div>
+      </mat-card>
     </div>
   </div>
 </div>

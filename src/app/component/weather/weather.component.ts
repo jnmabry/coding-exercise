@@ -37,7 +37,6 @@ export class WeatherComponent implements OnInit, OnDestroy {
     .subscribe(data => {
       const currentWeather = new Weather(data);
       this.currentWeather = currentWeather;
-      console.log(currentWeather);
       }, error => { console.log(error); }
     );
   }
@@ -46,10 +45,15 @@ export class WeatherComponent implements OnInit, OnDestroy {
     this._weatherService.getFiveDayForecast(lat, long)
     .subscribe(data => {
       const fiveDayForecast: Weather[] = data['list'].map((singleWeather) => new Weather(singleWeather) );
-      this.fiveDayForecast = fiveDayForecast;
-      console.log(fiveDayForecast);
+      this.filterForecast(fiveDayForecast);
       }, error => { console.log(error); }
     );
+  }
+
+  filterForecast(fiveDayForecast: Weather[]) {
+    this.fiveDayForecast = fiveDayForecast.filter(weather => {
+      return new Date(weather.time).getHours() === 13;
+    });
   }
 
   ngOnDestroy() {

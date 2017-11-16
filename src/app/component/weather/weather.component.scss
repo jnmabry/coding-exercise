@@ -1,0 +1,12 @@
+.weather-wrapper {
+  text-align: center !important;
+  font-family: 'Roboto', sans-serif;
+  .current-weather { height: 320px; }
+  .five-day {
+    margin-bottom: 30px;
+  }
+  mat-card {
+    margin-bottom: 30px;
+  }
+}
+
