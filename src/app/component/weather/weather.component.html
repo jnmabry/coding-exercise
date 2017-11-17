@@ -1,15 +1,16 @@
-<!-- <mat-progress-spinner [ngClass]="'hide'" mode="indeterminate"> -->
-<div class="container weather-wrapper">
+<div class="container weather-wrapper" [style.display]="displayContents">
   <div class="row">
     <div class="col-sm">
       <current-forecast [currentWeather]="currentWeather"></current-forecast>
     </div>      
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm col-md" *ngFor="let day of fiveDayForecast">
+  <div class="row five-day">
+    <div class="col" *ngFor="let day of fiveDayForecast">
       <single-day-forecast [day]="day"></single-day-forecast>
     </div>
   </div>
 </div>
+<mat-spinner mode="indeterminate" [style.display]="isLoading">      
+    
 
 

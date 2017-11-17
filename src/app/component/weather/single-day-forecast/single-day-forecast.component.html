@@ -1,5 +1,8 @@
-<mat-card [ngStyle]="{ 'background': '#D3EBF0' }">
-  <div class="card-block">
-    <h4 class="card-title">{{day.time | date:'E'}}</h4>
+<div class="single-day" [style.background]="day.color">
+  <div class="content-wrapper">
+    <h1>{{day.time | date:'EEEE'}}</h1>
+    <i class="wi" [ngClass]="day.icon"></i>
+    <h2>{{day.description}}</h2>
+    <p>{{day.temp}}</p>
   </div>
-</mat-card>
+</div>

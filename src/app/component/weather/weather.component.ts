@@ -12,6 +12,8 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   currentWeather: any = {};
   fiveDayForecast: Weather[] = [];
+  displayContents = 'none';
+  isLoading = 'block';
 
   constructor(private _weatherService: WeatherService) {
 
@@ -37,7 +39,12 @@ export class WeatherComponent implements OnInit, OnDestroy {
     .subscribe(data => {
       const currentWeather = new Weather(data);
       this.currentWeather = currentWeather;
-      }, error => { console.log(error); }
+      this.displayContents = 'block';
+      this.isLoading = 'none';
+      }, error => {
+        console.log(error);
+        // Show error message on Screen
+      }
     );
   }
 
@@ -46,7 +53,10 @@ export class WeatherComponent implements OnInit, OnDestroy {
     .subscribe(data => {
       const fiveDayForecast: Weather[] = data['list'].map((singleWeather) => new Weather(singleWeather) );
       this.filterForecast(fiveDayForecast);
-      }, error => { console.log(error); }
+      }, error => {
+        console.log(error);
+        // Show error message on Screen
+      }
     );
   }
 

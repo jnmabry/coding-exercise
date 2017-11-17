@@ -1,0 +1,25 @@
+.single-day {
+  height: 280px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  .content-wrapper {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  h2 {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .wi {
+    font-size: 70px;
+    padding: 30px;
+  }
+}

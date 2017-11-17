@@ -4,11 +4,10 @@
   color: #4A4A4A;
   .wi {
     font-size: 80px;
-    color: #C9C9C9;
     margin-bottom: 0.5rem;
   }
   .heading-info{
-    margin-bottom: 65px;
+    margin-bottom: 93px;
     .time { font-size: 25px; }
     .temp {
       font-size: 20px;
@@ -31,9 +30,36 @@
       position: relative;
       transform: translateY(-50%);
     }
+    h2 { font-size: 39px; }
     p {
       margin: 0px;
+      text-transform: capitalize;
     }
   }
 }
 
+// Responsive Styles
+@media(max-width: 991px) {
+  .conditions { display: initial !important; }
+  .temp { margin-top: 50px; }
+  .heading-info { margin-bottom: 40px !important; }
+}
+
+@media(max-width: 767px) {
+  .current-weather {
+    .wi { font-size: 130px !important; }
+  }
+  .conditions {
+    p { font-size: 25px; }
+    span { height: 100% !important; }
+  }
+}
+
+@media(max-width: 576px) {
+  .city {
+    font-size: 60px !important;
+    margin-bottom: 45px !important;
+  }
+  .temp { margin-top: 50px; }
+  .heading-info { margin-bottom: 20px !important; }
+}
