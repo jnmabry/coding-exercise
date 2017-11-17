@@ -3,7 +3,11 @@
   <div class="price">
     <p>{{quote.latestVolume}}@</p>
     <mat-card-title>{{quote.latestPrice}}</mat-card-title>
-    <i class="fa fa-arrow-right"></i>
-    <mat-card-subtitle clas>{{quote.changePercent | percent}}</mat-card-subtitle>    
+    <i class="fa fa-arrow-up" aria-hidden="true"
+      [style.color]="quote.color"></i>
+    <mat-card-subtitle
+      [style.color]="quote.color">
+      {{quote.changePercent}}
+    </mat-card-subtitle>    
   </div>
 </mat-card>

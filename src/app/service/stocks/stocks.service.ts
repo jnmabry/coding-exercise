@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 @Injectable()
 export class StocksService {
 
-  private quoteTimer: Observable<any> = Observable.timer(0, 5000);
+  private quoteTimer: Observable<any> = Observable.timer(0, 300000);
   private stockQuotes = new Subject<any>();
 
   constructor(private http: HttpClient) {

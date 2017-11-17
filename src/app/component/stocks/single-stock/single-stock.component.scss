@@ -1,9 +1,18 @@
 .mat-card {
   margin-bottom: 20px;
   .mat-card-title {
-    font-size: 60px;
+    font-size: 80px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .mat-card-subtitle {
+    margin: 0px;
   }
   .price {
-    * { display: inline-block };
+    * {
+      display: inline-block;
+      margin: 0px;
+      padding: 0px 5px;
+    };
+    .fa { font-size: 47px; };
   }
 }

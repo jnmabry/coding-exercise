@@ -14,52 +14,19 @@ import 'rxjs/add/observable/timer';
 
 export class StocksComponent implements OnInit, OnDestroy {
 
-  stockQuotes: Stock[] = [
-    { change: 0.039835,
-      changePercent: 0.028,
-      iexRealtimePrice: 158.71,
-      latestPrice: 158.73,
-      latestVolume: 20567140,
-      previousClose: 158.73,
-      symbol: 'AAPL'
-    },
-    { change: 0.039835,
-      changePercent: 0.028,
-      iexRealtimePrice: 158.71,
-      latestPrice: 158.73,
-      latestVolume: 20567140,
-      previousClose: 158.73,
-      symbol: 'AAPL'
-    },
-    { change: 0.039835,
-      changePercent: 0.028,
-      iexRealtimePrice: 158.71,
-      latestPrice: 158.73,
-      latestVolume: 20567140,
-      previousClose: 158.73,
-      symbol: 'AAPL'
-    },
-    { change: 0.039835,
-      changePercent: 0.028,
-      iexRealtimePrice: 158.71,
-      latestPrice: 158.73,
-      latestVolume: 20567140,
-      previousClose: 158.73,
-      symbol: 'AAPL'
-    },
-  ];
-
+  stockQuotes: Stock[] = [];
   quoteSubscription: Subscription;
 
   constructor(private _stocksService: StocksService) { }
 
   ngOnInit() {
-    // this.getStockQuotes();
+    this.getStockQuotes();
   }
 
   getStockQuotes() {
     this.quoteSubscription = this._stocksService.gotStockQuotes()
     .subscribe(quotes => {
+      console.log(quotes);
       this.stockQuotes.length = 0;
       this.addToStockArray(quotes);
     });
