@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-subtitle>{{quote.symbol}}</mat-card-subtitle>
+  <div class="price">
+    <p>{{quote.latestVolume}}@</p>
+    <mat-card-title>{{quote.latestPrice}}</mat-card-title>
+    <i class="fa fa-arrow-right"></i>
+    <mat-card-subtitle clas>{{quote.changePercent | percent}}</mat-card-subtitle>    
+  </div>
+</mat-card>

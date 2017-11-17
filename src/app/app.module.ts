@@ -22,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { SingleDayForecastComponent } from './component/weather/single-day-forecast/single-day-forecast.component';
 import { CurrentForecastComponent } from './component/weather/current-forecast/current-forecast.component';
+import { SingleStockComponent } from './component/stocks/single-stock/single-stock.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CurrentForecastComponent } from './component/weather/current-forecast/c
     WeatherComponent,
     StocksComponent,
     SingleDayForecastComponent,
-    CurrentForecastComponent
+    CurrentForecastComponent,
+    SingleStockComponent
   ],
   imports: [
     BrowserModule,

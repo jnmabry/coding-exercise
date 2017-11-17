@@ -4,23 +4,27 @@ import { CONFIG } from '../../config/config';
 import { Observable } from 'rxjs/Observable';
 import { Subject} from 'rxjs/Subject';
 import 'rxjs/add/observable/interval';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Injectable()
 export class StocksService {
 
-  private quoteTimer: Observable<any>;
+  private quoteTimer: Observable<any> = Observable.timer(0, 5000);
   private stockQuotes = new Subject<any>();
 
   constructor(private http: HttpClient) {
-    this.quoteTimer = Observable.timer(0, 5000);
-    this.quoteTimer.subscribe( t =>
+    this.startQuoteTimer();
+  }
+
+  startQuoteTimer(): Subscription {
+    return this.quoteTimer.subscribe( t =>
       this.getStockQuotes()
     );
   }
 
-  getStockQuotes() {
-   return this.http.get('https://api.iextrading.com/1.0/stock/aapl/quote').subscribe(quote =>
+  getStockQuotes(): Subscription {
+   return this.http.get('https://api.iextrading.com/1.0/stock/market/batch?symbols=aapl,googl,msft,amzn&types=quote&filter=symbol,latestPrice,change,iexRealtimePrice,changePercent,previousClose,latestVolume').subscribe(quote =>
     this.stockQuotes.next(quote)
    );
   }

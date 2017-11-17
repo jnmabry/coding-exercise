@@ -1,0 +1,9 @@
+.mat-card {
+  margin-bottom: 20px;
+  .mat-card-title {
+    font-size: 60px;
+  }
+  .price {
+    * { display: inline-block };
+  }
+}

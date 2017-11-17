@@ -1,3 +1,10 @@
-<p>
-  {{stockQuotes.latestUpdate | date:'full'}}
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6" *ngFor="let quote of stockQuotes">
+      <single-stock [quote]="quote"></single-stock>
+    </div>
+  </div>
+</div>
+
+
+
