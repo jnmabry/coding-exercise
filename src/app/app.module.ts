@@ -7,10 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './component/weather/weather.component';
 import { StocksComponent } from './component/stocks/stocks.component';
+import { LoaderComponent } from './component/loader/loader.component';
+
 
 // Services
 import { WeatherService } from './service/weather/weather.service';
 import { StocksService } from './service/stocks/stocks.service';
+import { LoaderService } from './service/loader/loader.service';
 
 // Angular Material Modules
 import { MatMenuModule } from '@angular/material/menu';
@@ -32,7 +35,8 @@ import { SingleStockComponent } from './component/stocks/single-stock/single-sto
     StocksComponent,
     SingleDayForecastComponent,
     CurrentForecastComponent,
-    SingleStockComponent
+    SingleStockComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,8 @@ import { SingleStockComponent } from './component/stocks/single-stock/single-sto
   ],
   providers: [
     WeatherService,
-    StocksService
+    StocksService,
+    LoaderService
   ],
   bootstrap: [AppComponent]
 })

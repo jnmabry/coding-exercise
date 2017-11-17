@@ -1,0 +1,15 @@
+.loader-wrapper {
+  background-color: white;
+  z-index: 0;
+  height: 100vh;
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  mat-spinner {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+  }
+}

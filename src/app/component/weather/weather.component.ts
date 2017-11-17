@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { WeatherService } from '../../service/weather/weather.service';
 import { Weather } from '../../service/weather/weather.model';
+import { LoaderService } from '../../service/loader/loader.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-weather',
@@ -12,14 +14,15 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   currentWeather: any = {};
   fiveDayForecast: Weather[] = [];
-  displayContents = 'none';
-  isLoading = 'block';
+  loaderClass: Observable<string>;
 
-  constructor(private _weatherService: WeatherService) {
-
+  constructor(private _weatherService: WeatherService,
+    private _loaderService: LoaderService) {
+    this.loaderClass = this._loaderService.getMessage();
   }
 
   ngOnInit() {
+    this._loaderService.show();
     if (navigator.geolocation) {
       this.getCurrentCoordinates();
     }
@@ -39,11 +42,11 @@ export class WeatherComponent implements OnInit, OnDestroy {
     .subscribe(data => {
       const currentWeather = new Weather(data);
       this.currentWeather = currentWeather;
-      this.displayContents = 'block';
-      this.isLoading = 'none';
       }, error => {
         console.log(error);
         // Show error message on Screen
+      }, () => {
+
       }
     );
   }
@@ -56,6 +59,9 @@ export class WeatherComponent implements OnInit, OnDestroy {
       }, error => {
         console.log(error);
         // Show error message on Screen
+      }, () => {
+        console.log('five day complete');
+        this._loaderService.hide();
       }
     );
   }
@@ -67,6 +73,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+
   }
 
 }

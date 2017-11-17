@@ -5,6 +5,5 @@
 @import "../node_modules/weathericons/css/weather-icons-wind.css";
 
 * {-webkit-font-smoothing: antialiased;}
-.hide {
-  display: none !important;
-}
+.hide { display: none !important; }
+.show { display: block !important; }

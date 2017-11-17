@@ -1,4 +1,4 @@
-<div class="container weather-wrapper" [style.display]="displayContents">
+<div class="container weather-wrapper">
   <div class="row">
     <div class="col-sm">
       <current-forecast [currentWeather]="currentWeather"></current-forecast>
@@ -10,7 +10,7 @@
     </div>
   </div>
 </div>
-<mat-spinner mode="indeterminate" [style.display]="isLoading">      
-    
+<app-loader [ngClass]="{'hide': (loaderClass | async) == 'hide'}"></app-loader>
+
 
 
