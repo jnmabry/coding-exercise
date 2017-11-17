@@ -17,7 +17,7 @@ export class LoaderService {
     this.loader.next('hide');
   }
 
-  getMessage(): Observable<any> {
+  getLoaderClass(): Observable<any> {
     return this.loader.asObservable();
   }
 

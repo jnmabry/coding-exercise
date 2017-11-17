@@ -10,15 +10,17 @@ import { Subscription } from 'rxjs/Subscription';
 @Injectable()
 export class StocksService {
 
-  private quoteTimer: Observable<any> = Observable.timer(0, 300000);
+  // private quoteTimer: Observable<any> = Observable.timer(0, 300000);
+  private quoteTimer: Observable<any> = Observable.timer(0, 5000);
+
   private stockQuotes = new Subject<any>();
+  quoteSubscription: Subscription;
 
   constructor(private http: HttpClient) {
-    this.startQuoteTimer();
   }
 
-  startQuoteTimer(): Subscription {
-    return this.quoteTimer.subscribe( t =>
+  startTimer() {
+    this.quoteSubscription = this.quoteTimer.subscribe( t =>
       this.getStockQuotes()
     );
   }
@@ -31,6 +33,10 @@ export class StocksService {
 
   gotStockQuotes(): Observable<any> {
     return this.stockQuotes.asObservable();
+  }
+
+  timerUnsubscribe() {
+    this.quoteSubscription.unsubscribe();
   }
 
 }

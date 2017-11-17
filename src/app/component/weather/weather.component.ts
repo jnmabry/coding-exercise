@@ -18,7 +18,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   constructor(private _weatherService: WeatherService,
     private _loaderService: LoaderService) {
-    this.loaderClass = this._loaderService.getMessage();
+    this.loaderClass = this._loaderService.getLoaderClass();
   }
 
   ngOnInit() {
@@ -60,7 +60,6 @@ export class WeatherComponent implements OnInit, OnDestroy {
         console.log(error);
         // Show error message on Screen
       }, () => {
-        console.log('five day complete');
         this._loaderService.hide();
       }
     );

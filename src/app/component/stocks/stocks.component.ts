@@ -22,10 +22,11 @@ export class StocksComponent implements OnInit, OnDestroy {
   constructor(private _stocksService: StocksService,
     private _loaderService: LoaderService
   ) {
-    this.loaderClass = this._loaderService.getMessage();
+    this.loaderClass = this._loaderService.getLoaderClass();
   }
 
   ngOnInit() {
+    this._stocksService.startTimer();
     this.getStockQuotes();
   }
 
@@ -33,7 +34,6 @@ export class StocksComponent implements OnInit, OnDestroy {
     this._loaderService.show();
     this.quoteSubscription = this._stocksService.gotStockQuotes()
     .subscribe(quotes => {
-      console.log(quotes);
       this.stockQuotes.length = 0;
       this.addToStockArray(quotes);
     });
@@ -41,7 +41,7 @@ export class StocksComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.quoteSubscription.unsubscribe();
-    this._stocksService.startQuoteTimer().unsubscribe();
+    this._stocksService.timerUnsubscribe();
   }
 
   addToStockArray(stockQuotesObject: any) {
